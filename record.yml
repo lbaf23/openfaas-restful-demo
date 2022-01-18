@@ -1,0 +1,10 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://localhost:31112
+functions:
+  record:
+    lang: golang-middleware
+    handler: ./record
+    image: lbaf23/record:latest
+
