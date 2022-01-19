@@ -111,7 +111,10 @@ func Get(w http.ResponseWriter, r *http.Request) {
 }
 
 func Put(w http.ResponseWriter, r *http.Request) {
-	var response Response
+	response := Response{
+		Message: "ok",
+		Code:    200,
+	}
 
 	res, _ := json.Marshal(response)
 	w.WriteHeader(http.StatusOK)
@@ -119,16 +122,20 @@ func Put(w http.ResponseWriter, r *http.Request) {
 }
 
 func Post(w http.ResponseWriter, r *http.Request) {
-	var response Response
-
+	response := Response{
+		Message: "ok",
+		Code:    200,
+	}
 	res, _ := json.Marshal(response)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
-	var response Response
-
+	response := Response{
+		Message: "ok",
+		Code:    200,
+	}
 	res, _ := json.Marshal(response)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
