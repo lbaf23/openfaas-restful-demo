@@ -23,6 +23,10 @@ faas-cli push -f record.yml
 faas-cli deploy -f record.yml
 ```
 
+get pod status
+```bash
+kubectl get pods -n openfaas-fn
+```
 
 print pod logs
 ```bash
