@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"handler/function/util"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -19,7 +20,7 @@ var db *sql.DB
 func init() {
 	var err error
 
-	secretfile, _ := ioutil.ReadFile("/var/openfaas/secrets/openfaas-restful-demo-db-password")
+	secretfile, _ := ioutil.ReadFile("/var/openfaas/secrets/openfaas-db-password")
 	password := strings.Split(string(secretfile), "\n")[0]
 
 	user := os.Getenv("postgres_user")
@@ -116,9 +117,7 @@ func Put(w http.ResponseWriter, r *http.Request) {
 		Code:    200,
 	}
 
-	res, _ := json.Marshal(response)
-	w.WriteHeader(http.StatusOK)
-	w.Write(res)
+	util.WriteResponse(w, http.StatusOK, response)
 }
 
 func Post(w http.ResponseWriter, r *http.Request) {
@@ -126,9 +125,7 @@ func Post(w http.ResponseWriter, r *http.Request) {
 		Message: "ok",
 		Code:    200,
 	}
-	res, _ := json.Marshal(response)
-	w.WriteHeader(http.StatusOK)
-	w.Write(res)
+	util.WriteResponse(w, http.StatusOK, response)
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
@@ -136,7 +133,5 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 		Message: "ok",
 		Code:    200,
 	}
-	res, _ := json.Marshal(response)
-	w.WriteHeader(http.StatusOK)
-	w.Write(res)
+	util.WriteResponse(w, http.StatusOK, response)
 }
