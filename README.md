@@ -7,8 +7,22 @@ OpenFaaS Restful Demo
 - golang
 
 
+pull template
+
 ```bash
 faas-cli template store pull golang-middleware
+```
+
+set password
+
+```bash
+vim openfaas-db-password
+```
+
+write db password
+
+```bash
+faas-cli secret create openfaas-db-password --from-file openfaas-db-password
 ```
 
 ```bash
