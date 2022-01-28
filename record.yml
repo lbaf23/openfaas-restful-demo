@@ -9,6 +9,7 @@ functions:
     image: lbaf23/record:latest
     build_args:
       GO111MODULE: on
+      GOPROXY: https://goproxy.cn,direct
     environment:
       postgres_db: demo
       postgres_port: 5432
@@ -16,4 +17,4 @@ functions:
       postgres_user: postgres
       postgres_sslmode: disable
     secrets:
-      - openfaas-restful-demo-db-password
+      - openfaas-db-password
